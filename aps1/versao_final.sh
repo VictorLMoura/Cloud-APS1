@@ -1,10 +1,11 @@
 #!/bin/bash
 sudo apt update
 sudo apt install python-pip
-#Yes
+git clone https://github.com/VictorLMoura/Cloud-APS1.git
 sudo pip install wheel
 sudo apt install libssl-dev
-
+cd Cloud-APS1/
+cd aps1/
 #Download and Configure MySQL
 sudo apt-get -y install zsh htop
 # Install MySQL Server in a Non-Interactive mode. Default root password will be "root"
