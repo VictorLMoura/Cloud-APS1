@@ -3,7 +3,6 @@
 from flask import flash, render_template, request, redirect, g, jsonify
 from flask_login import login_required
 from ..models import Tarefa
-from forms import CriarTarefa, RemoverTarefa
 from .. import db
 from ..models import Tarefa
 from . import home
