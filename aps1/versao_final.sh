@@ -47,10 +47,11 @@ EOF
 sudo service mysql restart
 #Fim do MySQL Script
 
-sudo apt-get install libmysqlclient-dev python-dev -y
-sudo pip install -r requirements.txt
+sudo apt-get install libmysqlclient-dev -y
+sudo apt-get install python-dev -y
+sudo pip install -r /home/ubuntu/Cloud-APS1/aps1/requirements.txt
 export FLASK_CONFIG=development
-export FLASK_APP=run.py
+export FLASK_APP=/home/ubuntu/Cloud-APS1/aps1/run.py
 flask db init
 flask db migrate
 flask db upgrade
