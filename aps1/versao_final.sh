@@ -1,7 +1,10 @@
 #!/bin/bash
 sudo apt update
-sudo apt install python3-pip
+sudo apt install python-pip
 #Yes
+sudo pip install wheel
+sudo apt install libssl-dev
+
 #Download and Configure MySQL
 sudo apt-get -y install zsh htop
 # Install MySQL Server in a Non-Interactive mode. Default root password will be "root"
@@ -42,7 +45,8 @@ EOF
 sudo service mysql restart
 #Fim do MySQL Script
 
-pip3 install -r requirements.txt
+sudo apt-get install libmysqlclient-dev python-dev
+sudo pip install -r requirements.txt
 export FLASK_CONFIG=development
 export FLASK_APP=run.py
 flask db init

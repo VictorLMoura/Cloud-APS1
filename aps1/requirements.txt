@@ -12,6 +12,7 @@ Jinja2==2.10.3
 Mako==1.1.0
 MarkupSafe==1.1.1
 MySQL-python==1.2.5
+#https://files.pythonhosted.org/packages/a5/e9/51b544da85a36a68debe7a7091f068d802fc515a3a202652828c73453cad/MySQL-python-1.2.5.zip
 python-dateutil==2.8.1
 python-editor==1.0.4
 six==1.13.0
