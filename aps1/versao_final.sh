@@ -1,9 +1,10 @@
 #!/bin/bash
-sudo apt update
-sudo apt install python-pip
+cd /home/ubuntu/
+sudo apt-get update -y
+sudo apt-get install python-pip -y
 git clone https://github.com/VictorLMoura/Cloud-APS1.git
 sudo pip install wheel
-sudo apt install libssl-dev
+sudo apt-get install libssl-dev -y
 cd Cloud-APS1/
 cd aps1/
 #Download and Configure MySQL
@@ -46,7 +47,7 @@ EOF
 sudo service mysql restart
 #Fim do MySQL Script
 
-sudo apt-get install libmysqlclient-dev python-dev
+sudo apt-get install libmysqlclient-dev python-dev -y
 sudo pip install -r requirements.txt
 export FLASK_CONFIG=development
 export FLASK_APP=run.py
