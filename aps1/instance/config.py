@@ -1,4 +1,5 @@
 # instance/config.py
-
+import os
 SECRET_KEY = 'p9Bv<3Eid9%$i01'
-SQLALCHEMY_DATABASE_URI = 'mysql://victor:Vlm1998!!!@54.224.147.18/aps1'
+path = 'mysql://victor:Vlm1998!!!@'+ os.environ['IPDB']  +'/aps1'
+SQLALCHEMY_DATABASE_URI = path
