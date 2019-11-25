@@ -11,7 +11,7 @@ def lista_tarefas():
     Lista as tarefas ja criadas
     """
     if request.method == 'POST':
-        dic_temp["texto"] = request.json["texto"])
+        dic_temp["texto"] = request.json["texto"]
         r = requests.post("http://" + os.environ['IPSERVER'] + ":5000/tarefa", json=dic_temp)
         return r
 
@@ -27,7 +27,7 @@ def altera_tarefas(id):
     Altera uma tarefa
     """
     if request.method == 'PUT':
-        dic_temp["texto"] = request.json["texto"])
+        dic_temp["texto"] = request.json["texto"]
         r = requests.put("http://" + os.environ['IPSERVER'] + ":5000/tarefa/"+id, json=dic_temp)
         return r
     
