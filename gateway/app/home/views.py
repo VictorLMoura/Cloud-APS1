@@ -1,10 +1,6 @@
 # app/home/views.py
 
 from flask import flash, render_template, request, redirect, g, jsonify
-from flask_login import login_required
-from ..models import Tarefa
-from .. import db
-from ..models import Tarefa
 from . import home
 from sqlalchemy.ext.declarative import DeclarativeMeta
 import json
@@ -20,7 +16,7 @@ def lista_tarefas():
         return r
 
     if request.method == 'GET':
-        r = requests.get('http://127.0.0.1:5000/tarefa')
+        r = requests.get("http://+" os.environ['IPSERVER'] +":5000/tarefa")
         return r
 
     return "404"
