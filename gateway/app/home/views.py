@@ -17,7 +17,7 @@ def lista_tarefas():
         return r
 
     if request.method == 'GET':
-        r = requests.get("http://+" os.environ['IPSERVER'] +":5000/tarefa")
+        r = requests.get("http://" + os.environ['IPSERVER'] + ":5000/tarefa")
         return r
 
     return "404"
