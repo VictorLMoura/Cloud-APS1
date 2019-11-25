@@ -9,9 +9,6 @@ from config import app_config
 from flask_bootstrap import Bootstrap
 
 
-# db variable initialization
-db = SQLAlchemy()
-
 
 
 def create_app(config_name):
@@ -21,7 +18,6 @@ def create_app(config_name):
 
     Bootstrap(app)
 
-    from app import models
     from .home import home as home_blueprint
     app.register_blueprint(home_blueprint)
 
