@@ -4,6 +4,7 @@ from flask import flash, render_template, request, redirect, g, jsonify
 from . import home
 from sqlalchemy.ext.declarative import DeclarativeMeta
 import json
+import os
 
 @home.route('/tarefa', methods=['GET', 'POST'])
 def lista_tarefas():
