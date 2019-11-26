@@ -14,11 +14,11 @@ def lista_tarefas():
     """
     if request.method == 'POST':
         dic_temp["texto"] = request.json["texto"]
-        r = requests.post("http://" + os.environ['IPSERVER'] + ":5000/tarefa", json=dic_temp)
+        r = requests.post("http://" + os.environ['IPSERVER'] + ":8080/tarefa", json=dic_temp)
         return (r.text, r.status_code, r.headers.items())
 
     if request.method == 'GET':
-        r = requests.get("http://" + os.environ['IPSERVER'] + ":5000/tarefa")
+        r = requests.get("http://" + os.environ['IPSERVER'] + ":8080/tarefa")
         return (r.text, r.status_code, r.headers.items())
 
     return "404"
@@ -30,11 +30,11 @@ def altera_tarefas(id):
     """
     if request.method == 'PUT':
         dic_temp["texto"] = request.json["texto"]
-        r = requests.put("http://" + os.environ['IPSERVER'] + ":5000/tarefa/"+id, json=dic_temp)
+        r = requests.put("http://" + os.environ['IPSERVER'] + ":8080/tarefa/"+id, json=dic_temp)
         return (r.text, r.status_code, r.headers.items())
     
     if request.method == 'DELETE':
-        r = requests.delete("http://"+ os.environ['IPSERVER'] +":5000/tarefa/"+id)
+        r = requests.delete("http://"+ os.environ['IPSERVER'] +":8080/tarefa/"+id)
         return (r.text, r.status_code, r.headers.items())
     
     return "404"
