@@ -9,8 +9,6 @@ conn = pymysql.connect(host=os.environ['IPDB'], user='victor', password='Vlm1998
 
 conn.autocommit(True)
 
-def post_one(conn)
-
 @app.route('/tarefa', methods=['GET', 'POST'])
 def lista_tarefas():
     """
