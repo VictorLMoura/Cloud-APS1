@@ -20,24 +20,22 @@ def lista_tarefas():
                 cursor.execute('INSERT INTO tarefas (texto) VALUES (%s)', (request.json["texto"]))
                 conn.commit()
                 conn.close()
+                return ""
             except pymysql.err.IntegrityError as e:
                 raise ValueError(f'Não posso inserir {request.json["texto"]} na tabela')
                 conn.close()
         return "Algo errado"
-
     if request.method == 'GET':
         with conn.cursor() as cursor:
             try:
                 cursor.execute('SELECT * FROM tarefas')
                 res = cursor.fetchall()
                 conn.close()
-                return res
+                return {'res' : res}
             except pymysql.err.IntegrityError as e:
                 raise ValueError(f'ERRO')
                 conn.close()
-                return -1
-        return "Algo errado"
-
+                return "Algo errado"
     return "Algo errado"
 
 @app.route('/tarefa/<int:id>', methods=['GET', 'PUT', 'DELETE'])
@@ -46,11 +44,15 @@ def altera_tarefas(id):
     Altera uma tarefa
     """    
     if request.method == 'DELETE':
-        with conn.cursor() as cursor:
-            cursor.execute('DELETE FROM tarefas WHERE id=%s', (id))
+        try:
+            with conn.cursor() as cursor:
+                cursor.execute('DELETE FROM tarefas WHERE id=%s', (id))
+                conn.close()
+                return ""
+        except pymysql.err.IntegrityError as e:
+            raise ValueError(f'ERRO')
             conn.close()
-        return "Uso: /tarefa /tarefa/<int:id>"
-    
+            return "Algo errado"    
     return "Uso: /tarefa /tarefa/<int:id>"
 
 if __name__ == '__main__':
